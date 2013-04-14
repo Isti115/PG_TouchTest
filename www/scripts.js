@@ -3,6 +3,7 @@ window.addEventListener("load", init, false);
 function init()
 {
 	window.addEventListener("touchstart", touch, false);
+	window.addEventListener("touchmove", touch, false);
 }
 
 function touch(e)
@@ -13,8 +14,10 @@ function touch(e)
 	
 	var info = "";
 	
-	info += touch.screenX + "<br />";
-	info += touch.screenY + "<br />";
+	info += "screenX : " + touch.screenX + "<br />";
+	info += "screenY : " + touch.screenY + "<br />";
+	info += "radiusX : " + touch.radiusX + "<br />";
+	info += "radiusY : " + touch.radiusY + "<br />";
 	
 	infoDiv.innerHTML = info;
 }
