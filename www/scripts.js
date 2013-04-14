@@ -1,9 +1,21 @@
 window.addEventListener("load", init, false);
 
+var polling;
+
 function init()
 {
-	window.addEventListener("touchstart", touch, false);
-	window.addEventListener("touchmove", touch, false);
+	window.addEventListener("touchstart", touchStart, false);
+	window.addEventListener("touchend", touchEnd, false);
+}
+
+function touchStart(e)
+{
+	polling = setInterval(function(){touch(e);}, 100);
+}
+
+function touchEnd(e)
+{
+	clearInterval(polling);
 }
 
 function touch(e)
